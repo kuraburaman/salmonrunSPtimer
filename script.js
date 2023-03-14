@@ -153,6 +153,7 @@ function startTimer() {
     }
     document.getElementById('timer').textContent = timer;
     if (elements[0].checked){
+        alert(ok);
       if (timer == 50){
         sound2.play();
       }
