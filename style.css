@@ -1,6 +1,3 @@
-
-  
-  
   body {
     background-color: #fdf9fd;
     font-family: Arial, sans-serif;
@@ -90,7 +87,6 @@
   .radio-container {
     display: table;
     margin: 0 auto;
-    
 }
 
   .howto {
@@ -106,5 +102,3 @@
     text-align: left; /* テキストと音声を左寄せにする */
     vertical-align: middle; /* テキストと音声を縦方向に中央揃えにする */
 }
-
-
