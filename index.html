@@ -1,97 +1,208 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <title>サモラン SP促進タイマー</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>サーモンラン スペシャル促進タイマー</h1>
-    <br>
-    <p class="time">WAVE開始まで<span id="timer2">12</span> 秒 ＋ 残り<span id="timer">100</span> 秒</p>
-    <br>
-    <div class="Count">
-      <div class="Countbutton-container">
-        <button id="CountBtn12">着地</button>
-        <button id="CountBtn10">10</button>
-        <button id="CountBtn9">9</button>
-        <button id="CountBtn8">8</button>
-        <button id="CountBtn7">7</button>
-        <button id="CountBtn6">6</button>
-        <button id="CountBtn5">5</button>
-        <button id="CountBtn4">4</button>
-        <button id="CountBtn3">3</button>
-        <button id="CountBtn2">2</button>
-        <button id="CountBtn1">1</button>
-      </div>
-    </div>
-    <div class="button-container">
-      <button id="startBtn" onclick="startTimer()">スタート</button>
-      <button id="stopBtn" onclick="stopTimer()">ストップ</button>
-      <button id="resetBtn" onclick="resetTimer()">リセット</button>
-    </div>
-    <br>
-    <br>
-    <p class="bar">知らせる時間を選択</p>
-    <br>
-    <div class="checkbox-container">
-      <input type="checkbox" id="option1" style="transform:scale(2.0);"><b> 残り70秒で知らせる　　</b>
-      <input type="checkbox" id="option2" style="transform:scale(2.0);"><b> 残り50秒で知らせる</b><br><br>
-      <input type="checkbox" id="option3" style="transform:scale(2.0);"><b> 残り30秒で知らせる　　</b>
-      <input type="checkbox" id="option4" style="transform:scale(2.0);"><b> 残り15秒で知らせる</b><br>
-    </div>
-    <br>
-    <br>
-    <p class="bar">音声一覧</p>
-      <table>
-        <tr>
-          <td><p>音声１　(残り70秒)</p></td>
-          <td><p>音声２　(残り50秒)</p></td>
-        </tr>
-        <tr>
-          <td><audio controls muted src="audio1.mp3"></audio></td>
-          <td><audio controls muted src="audio2.mp3"></audio></td>
-        </tr>
-        <tr>
-          <td><p>音声３　(残り30秒)</p></td>
-          <td><p>音声４　(残り15秒)</p></td>
-        </tr>
-        <tr>
-          <td><audio controls muted src="audio3.mp3"></audio></td>
-          <td><audio controls muted src="audio4.mp3"></audio></td>
-        </tr>
-      </table>
-    <br>
-    <br>
-    <p class="bar">使い方 & 注意事項</p>
-    <div class="howto">
-      <p>・　時間を選択してからスタートして下さい</p>
-      <p>・　10～1のボタンは、数字を押すとその数字をカウントダウンした
-           <br>　　後にタイマーが自動でスタートします。WAVE開始前のカウントに合わせるように下さい</p>
-      <p>・　着地ボタンは、WAVE2とWAVE3の着地と同時に押すとカウントダウンのタイミングが合います</p>     
-      <p>・　Safariでは音声の自動再生は出来ないようです、別のブラウザを使って下さい</p>
-      <p>・　タイマーの挙動がおかしくなったら更新して下さい</p>
-      <p>・　Voiced by https://CoeFont.cloud</p>
-    </div>
-  </body>
-  <script type="text/javascript" src="script.js"></script>
-  <!--
-    <hiro>
-  　　　　＿＿_＿
-  　　　／へへ　 ＼
-  　　／／⌒⌒＼　 ＼
-  　 / /　　　　ヽ　 ヽ　 _______________________________
-  　｜｜ヽ　／⌒ |　　| ＜ なんだろう・・・               |
-  　 ﾚY-･／　-･- ヽ　 |　| 見るのやめて貰っていいですか？ |
-  　　| /　　　　 Ｖ) |  ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
-  　　|(＿つ　 ･　 丿ノ
-  　　|＜三三＞)　/ /
-  　　ヽ　ﾞﾞ　　／ﾚｿ
-  　　　＼从ww／　｜
-  　　　　/)￣　　∧
-  　　　／ﾚヽ　 ／ |＼
-  　　 ｜|　|　｜⌒ |｜
-  
-    </hiro>
-  -->
-</html>
+let intervalId; // タイマーIDを保持する変数
+let timer = 100; // タイマーの初期値
+let timer2 = 12; // タイマーの初期値
+ // 音声ファイル
+const sound2 = new Audio('audio2.mp3');
+const sound3 = new Audio('audio3.mp3');
+const sound4 = new Audio('audio4.mp3');
+const sound5 = new Audio('start.mp3');
+const sound6 = new Audio('stop.mp3');
+const sound7 = new Audio('reset.mp3');
+const Countsound12 = new Audio('chakuchi.mp3');
+const Countsound10 = new Audio('10.mp3');
+const Countsound9 = new Audio('9.mp3');
+const Countsound8 = new Audio('8.mp3');
+const Countsound7 = new Audio('7.mp3');
+const Countsound6 = new Audio('6.mp3');
+const Countsound5 = new Audio('5.mp3');
+const Countsound4 = new Audio('4.mp3');
+const Countsound3 = new Audio('3.mp3');
+const Countsound2 = new Audio('2.mp3');
+const Countsound1 = new Audio('1.mp3');
+let option1 = document.getElementById("option1");
+let option2 = document.getElementById("option2");
+let option3 = document.getElementById("option3");
+let option4 = document.getElementById("option4");
+let countdown;
+
+sound1.load();
+
+sound3.load();
+sound4.load();
+sound5.load();
+sound6.load();
+sound7.load();
+Countsound12.load();
+Countsound10.load();
+Countsound9.load();
+Countsound8.load();
+Countsound7.load();
+Countsound6.load();
+Countsound5.load();
+Countsound4.load();
+Countsound3.load();
+Countsound2.load();
+Countsound1.load();
+
+function startCountdown(num) {
+    timer2 = num;
+    clearInterval(countdown);    
+    document.getElementById('timer2').textContent = timer2; 
+    timer = 100;
+    clearInterval(intervalId);
+    document.getElementById('timer').textContent = timer; 
+    let soundName = "Countsound" + num;
+    eval(soundName + ".play()"); 
+    let count = num - 1;
+    countdown = setInterval(() => {
+      timer2--;
+      if (timer2 < 0) {
+        timer2 = 0;
+      }
+      document.getElementById('timer2').textContent = timer2; 
+      if (count == 0) {
+        clearInterval(countdown);
+        startTimer()
+      }
+      switch (count) {  
+        case 0:
+          break;
+        case 1:
+          Countsound1.play();
+          break;
+        case 2:
+          Countsound2.play();
+          break;
+        case 3:
+          Countsound3.play();
+          break;
+        case 4:
+          Countsound4.play();
+          break;
+        case 5:
+          Countsound5.play();
+          break;
+        case 6:
+          Countsound6.play();
+          break;
+        case 7:
+          Countsound7.play();
+          break;
+        case 8:
+          Countsound8.play();
+          break;
+        case 9:
+          Countsound9.play();
+          break;
+        case 10:
+          Countsound10.play();
+          break;
+        case 11:
+          break;
+        case 12:
+          Countsound12.play();
+          break;
+      }
+      count--;
+    }, 1000);
+  }
+
+document.getElementById("CountBtn1").addEventListener("click", () => {
+  startCountdown(1);
+});
+document.getElementById("CountBtn2").addEventListener("click", () => {
+  startCountdown(2);
+});
+document.getElementById("CountBtn3").addEventListener("click", () => {
+  startCountdown(3);
+});
+document.getElementById("CountBtn4").addEventListener("click", () => {
+  startCountdown(4);
+});
+document.getElementById("CountBtn5").addEventListener("click", () => {
+  startCountdown(5);
+});
+document.getElementById("CountBtn6").addEventListener("click", () => {
+  startCountdown(6);
+});
+document.getElementById("CountBtn7").addEventListener("click", () => {
+  startCountdown(7);
+});
+document.getElementById("CountBtn8").addEventListener("click", () => {
+  startCountdown(8);
+});
+document.getElementById("CountBtn9").addEventListener("click", () => {
+  startCountdown(9);
+});
+document.getElementById("CountBtn10").addEventListener("click", () => {
+  startCountdown(10);
+});
+document.getElementById("CountBtn12").addEventListener("click", () => {
+  startCountdown(12);
+});
+
+function startTimer() {
+  const sound1 = new Audio('audio1.mp3');
+  sound1.load();
+  timer2 = 0;
+  clearInterval(countdown);
+  document.getElementById('timer2').textContent = timer2;
+  sound5.play();
+  if (intervalId) {
+    clearInterval(intervalId);
+  }
+  intervalId = setInterval(() => {
+    timer--;
+    if (timer < 0) {
+      timer = 0;
+    }
+    document.getElementById('timer').textContent = timer;
+    if (timer == 70){
+      if (option1.checked){     
+        sound1.play();
+      }
+    }
+    if (timer == 55){
+        sound2.load();
+    }
+    if (timer == 50){  
+      if (option2.checked){
+        sound2.play();
+      }
+    }
+    if (timer == 30){
+      if (option3.checked){
+        sound3.play();
+      }
+    }
+    if (timer == 15){
+      if (option4.checked){
+        sound4.play();
+      }
+    }
+    if (timer == 0){
+      timer = 100;
+      timer2 = 12;
+      clearInterval(countdown); 
+      clearInterval(intervalId);
+      document.getElementById('timer').textContent = timer;
+      document.getElementById('timer2').textContent = timer2;
+    }
+  }, 1000);
+}
+
+function stopTimer() {
+  sound6.play();
+  clearInterval(countdown); 
+  clearInterval(intervalId);
+}
+
+function resetTimer() {
+  sound7.play();
+  timer = 100;
+  timer2 = 12;
+  clearInterval(countdown); 
+  clearInterval(intervalId);
+  document.getElementById('timer').textContent = timer;
+  document.getElementById('timer2').textContent = timer2;
+}
