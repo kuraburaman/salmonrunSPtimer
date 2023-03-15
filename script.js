@@ -2,9 +2,6 @@ let intervalId; // タイマーIDを保持する変数
 let timer = 100; // タイマーの初期値
 let timer2 = 12; // タイマーの初期値
  // 音声ファイル
-const sound2 = new Audio('audio2.mp3');
-const sound3 = new Audio('audio3.mp3');
-const sound4 = new Audio('audio4.mp3');
 const sound5 = new Audio('start.mp3');
 const sound6 = new Audio('stop.mp3');
 const sound7 = new Audio('reset.mp3');
@@ -25,10 +22,6 @@ let option3 = document.getElementById("option3");
 let option4 = document.getElementById("option4");
 let countdown;
 
-sound1.load();
-
-sound3.load();
-sound4.load();
 sound5.load();
 sound6.load();
 sound7.load();
@@ -143,7 +136,13 @@ document.getElementById("CountBtn12").addEventListener("click", () => {
 
 function startTimer() {
   const sound1 = new Audio('audio1.mp3');
+  const sound2 = new Audio('audio2.mp3');
+  const sound3 = new Audio('audio3.mp3');
+  const sound4 = new Audio('audio4.mp3');
   sound1.load();
+  sound2.load();
+  sound3.load();
+  sound4.load();
   timer2 = 0;
   clearInterval(countdown);
   document.getElementById('timer2').textContent = timer2;
@@ -161,9 +160,6 @@ function startTimer() {
       if (option1.checked){     
         sound1.play();
       }
-    }
-    if (timer == 55){
-        sound2.load();
     }
     if (timer == 50){  
       if (option2.checked){
