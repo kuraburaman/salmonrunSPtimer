@@ -46,6 +46,10 @@ function startCountdown(num) {
     sound2.load();
     sound3.load();
     sound4.load();
+    sound1.currentTime = 0;
+    sound2.currentTime = 0;
+    sound3.currentTime = 0;
+    sound4.currentTime = 0;
 
     timer2 = num;
     clearInterval(countdown);    
