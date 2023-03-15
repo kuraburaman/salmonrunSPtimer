@@ -183,6 +183,10 @@ function startTimer() {
       clearInterval(intervalId);
       document.getElementById('timer').textContent = timer;
       document.getElementById('timer2').textContent = timer2;
+      sound1.currentTime = 0;
+      sound2.currentTime = 0;
+      sound3.currentTime = 0;
+      sound4.currentTime = 0;
     }
   }, 1000);
 }
@@ -201,4 +205,8 @@ function resetTimer() {
   clearInterval(intervalId);
   document.getElementById('timer').textContent = timer;
   document.getElementById('timer2').textContent = timer2;
+  sound1.currentTime = 0;
+  sound2.currentTime = 0;
+  sound3.currentTime = 0;
+  sound4.currentTime = 0;
 }
