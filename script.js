@@ -26,7 +26,7 @@ let option4 = document.getElementById("option4");
 let countdown;
 
 sound1.load();
-sound2.load();
+
 sound3.load();
 sound4.load();
 sound5.load();
@@ -156,12 +156,14 @@ function startTimer() {
     }
     document.getElementById('timer').textContent = timer;
     if (timer == 70){
-      if (option1.checked){      
+      if (option1.checked){ 
+        sound1.load();     
         sound1.play();
       }
     }
     if (timer == 50){  
       if (option2.checked){
+        sound2.load();
         sound2.play();
       }
     }
