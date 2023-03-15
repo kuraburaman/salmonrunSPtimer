@@ -38,6 +38,15 @@ Countsound2.load();
 Countsound1.load();
 
 function startCountdown(num) {
+    const sound1 = new Audio('audio1.mp3');
+    const sound2 = new Audio('audio2.mp3');
+    const sound3 = new Audio('audio3.mp3');
+    const sound4 = new Audio('audio4.mp3');
+    sound1.load();
+    sound2.load();
+    sound3.load();
+    sound4.load();
+
     timer2 = num;
     clearInterval(countdown);    
     document.getElementById('timer2').textContent = timer2; 
