@@ -1,24 +1,24 @@
 let intervalId; // タイマーIDを保持する変数
 let timer = 100; // タイマーの初期値
 let timer2 = 12; // タイマーの初期値
-const sound1 = new Audio('audio1.mp3'); // 音声ファイル
-const sound2 = new Audio('audio2.mp3')
-const sound3 = new Audio('audio3.mp3')
-const sound4 = new Audio('audio4.mp3')
-const sound5 = new Audio('start.mp3')
-const sound6 = new Audio('stop.mp3')
-const sound7 = new Audio('reset.mp3')
-const Countsound12 = new Audio('chakuchi.mp3')
-const Countsound10 = new Audio('10.mp3')
-const Countsound9 = new Audio('9.mp3')
-const Countsound8 = new Audio('8.mp3')
-const Countsound7 = new Audio('7.mp3')
-const Countsound6 = new Audio('6.mp3')
-const Countsound5 = new Audio('5.mp3')
-const Countsound4 = new Audio('4.mp3')
-const Countsound3 = new Audio('3.mp3')
-const Countsound2 = new Audio('2.mp3')
-const Countsound1 = new Audio('1.mp3')
+ // 音声ファイル
+const sound2 = new Audio('audio2.mp3');
+const sound3 = new Audio('audio3.mp3');
+const sound4 = new Audio('audio4.mp3');
+const sound5 = new Audio('start.mp3');
+const sound6 = new Audio('stop.mp3');
+const sound7 = new Audio('reset.mp3');
+const Countsound12 = new Audio('chakuchi.mp3');
+const Countsound10 = new Audio('10.mp3');
+const Countsound9 = new Audio('9.mp3');
+const Countsound8 = new Audio('8.mp3');
+const Countsound7 = new Audio('7.mp3');
+const Countsound6 = new Audio('6.mp3');
+const Countsound5 = new Audio('5.mp3');
+const Countsound4 = new Audio('4.mp3');
+const Countsound3 = new Audio('3.mp3');
+const Countsound2 = new Audio('2.mp3');
+const Countsound1 = new Audio('1.mp3');
 let option1 = document.getElementById("option1");
 let option2 = document.getElementById("option2");
 let option3 = document.getElementById("option3");
@@ -142,6 +142,7 @@ document.getElementById("CountBtn12").addEventListener("click", () => {
 });
 
 function startTimer() {
+  const sound1 = new Audio('audio1.mp3');
   sound1.load();
   timer2 = 0;
   clearInterval(countdown);
