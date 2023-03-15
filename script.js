@@ -142,6 +142,7 @@ document.getElementById("CountBtn12").addEventListener("click", () => {
 });
 
 function startTimer() {
+  sound1.load();
   timer2 = 0;
   clearInterval(countdown);
   document.getElementById('timer2').textContent = timer2;
@@ -156,14 +157,15 @@ function startTimer() {
     }
     document.getElementById('timer').textContent = timer;
     if (timer == 70){
-      if (option1.checked){ 
-        sound1.load();     
+      if (option1.checked){     
         sound1.play();
       }
     }
+    if (timer == 55){
+        sound2.load();
+    }
     if (timer == 50){  
       if (option2.checked){
-        sound2.load();
         sound2.play();
       }
     }
