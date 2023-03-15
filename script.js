@@ -19,7 +19,10 @@ const Countsound4 = new Audio('4.mp3')
 const Countsound3 = new Audio('3.mp3')
 const Countsound2 = new Audio('2.mp3')
 const Countsound1 = new Audio('1.mp3')
-const elements = document.getElementsByName("options");
+let option1 = document.getElementById("option1");
+let option2 = document.getElementById("option2");
+let option3 = document.getElementById("option3");
+let option4 = document.getElementById("option4");
 let countdown;
 
 sound1.load();
@@ -152,40 +155,33 @@ function startTimer() {
       timer = 0;
     }
     document.getElementById('timer').textContent = timer;
-    if (elements[0].checked){
-        alert(ok);
-      if (timer == 50){
-        sound2.play();
-      }
-    }
-    if (elements[1].checked){
-      if (timer == 50){
-        sound2.play();
-      } else if (timer == 25){
-        sound3.play();
-      }
-    }
-    if (elements[2].checked){
-      if (timer == 70){
+    if (timer == 70){
+      if (option1.checked){      
         sound1.play();
       }
-      if (timer == 50){
+    }
+    if (timer == 50){  
+      if (option2.checked){
         sound2.play();
       }
-      if (timer == 30){
+    }
+    if (timer == 30){
+      if (option3.checked){
         sound3.play();
       }
-      if (timer == 15){
+    }
+    if (timer == 15){
+      if (option4.checked){
         sound4.play();
       }
     }
-    if (timer == 0) {
-        timer = 100;
-        timer2 = 12;
-        clearInterval(countdown); 
-        clearInterval(intervalId);
-        document.getElementById('timer').textContent = timer;
-        document.getElementById('timer2').textContent = timer2;
+    if (timer == 0){
+      timer = 100;
+      timer2 = 12;
+      clearInterval(countdown); 
+      clearInterval(intervalId);
+      document.getElementById('timer').textContent = timer;
+      document.getElementById('timer2').textContent = timer2;
     }
   }, 1000);
 }
